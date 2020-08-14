@@ -15,11 +15,24 @@
 #define prti(x) printf("%d", x)
 #define prta(x, a, b) forr(i,a,b){if(i!=a)putchar(' ');prti(x[i]);}
 int cmp(const void* a,const void* b){return *((int*)a)-*((int*)b);}
-#define N 100000
+#define MAXN 100000
+#define MAXSTR 1000
+#define MOD 7
+
+// Number Sequence
+static inline int f(int a, int b, int n) {
+  if (n <= 2) return 1;
+  int fm2 = 1, fm1 = 1, f;
+  n -= 2; while (n--) {
+    f = (a * fm1 + b * fm2) % 7;
+    fm2 = fm1; fm1 = f;
+  }
+  return f;
+}
 
 int main() {
-  int n; while (~input(n)) {
-    if (!n) break;
-
+  int a, b, n; while(~scanf("%d%d%d", &a, &b, &n)) {
+    if (!a & !b && !n) break;
+    printf("%d\n", f(a % MOD, b % MOD, n));
   }
 }

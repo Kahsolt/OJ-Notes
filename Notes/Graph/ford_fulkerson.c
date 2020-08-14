@@ -46,7 +46,7 @@ int dfs(int v, int t, int f) {  // v: current vertex that approaching t
       if (d > 0) {          // 该路径可以增加流量d
         e->cap -= d;        // 占用d的流量，减小水管
         e->rev->cap += d;   // 反向边表示可以回退的流量，增加d
-        return d;
+        return d;           // 见好就收、跳出for循环
       }
     }
   return 0;

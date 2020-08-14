@@ -1,0 +1,11 @@
+# VSCode folder
+.vscode
+
+# GNU Global (gtags) stuff
+GPATH
+GTAGS
+GRTAGS
+
+# objects & binary 
+*.o
+*.exe
