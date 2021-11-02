@@ -31,10 +31,10 @@ void ll_reverse(Node* ll) {
 void ll_reverse2(Node* ll) {
   Node *p = ll, *q = NULL, *r;
   while (p) {
-    r = q;        // r反向移动
-    q = p;        // q反向移动
-    p = p->next;  // p正向移动
-    q->next = r;  // 让q连接r
+    r = q;        // 临时指针r，暂时记录新链表头
+    q = p;        // 暂时记录从旧连表上取下的节点，将成为新链表头q
+    p = p->next;  // 原链表头p，正向移动、链表不断缩短
+    q->next = r;  // 让取下来的q头插到r上，q成为新链表头q
   }
   ll = q;
 }
